@@ -1,0 +1,27 @@
+{
+  "name": "agent",
+  "version": "1.0.0",
+  "description": "agent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/cooperhsiung/agent.git"
+  },
+  "keywords": [
+    "agent"
+  ],
+  "author": "Cooper Hsiung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/cooperhsiung/agent/issues"
+  },
+  "homepage": "https://gitlab.com/cooperhsiung/agent#README",
+  "dependencies": {
+    "compression": "^1.7.2",
+    "connect": "^3.6.6",
+    "request": "^2.87.0"
+  }
+}
