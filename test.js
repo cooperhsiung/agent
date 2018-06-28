@@ -2,7 +2,6 @@
  * Created by Cooper on 2018/06/28.
  */
 const request = require('request');
-// const request = require('request').defaults({ gzip: true, json: true, timeout: 20000 });
 
 // let options = {
 //   url: 'https://www.baidu.com/',
@@ -28,12 +27,7 @@ function wrapr(options, cb) {
     {
       url: `http://127.0.0.1:2350`,
       method: 'POST',
-      json: options,
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
-        'Accept-Encoding': 'gzip, deflate, br'
-      }
+      json: options
     },
     cb
   );
