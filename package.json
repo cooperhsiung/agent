@@ -20,8 +20,6 @@
   },
   "homepage": "https://gitlab.com/cooperhsiung/agent#README",
   "dependencies": {
-    "compression": "^1.7.2",
-    "connect": "^3.6.6",
     "request": "^2.87.0"
   }
 }
