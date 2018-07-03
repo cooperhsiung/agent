@@ -1,5 +1,5 @@
 /**
- * Created by Cooper on 2018/06/28.
+ * Created by Cooper on 2018/07/03.
  */
 const http = require('http');
 const request = require('request').defaults({ gzip: true, json: true, timeout: 20000 });
@@ -19,16 +19,18 @@ http
           console.log('req', err);
           return req.destroy(err);
         }
-        request(options)
-          .on('error', err => {
-            console.log('req', err);
-            req.destroy(err);
-          })
-          .pipe(res)
-          .on('error', err => {
-            console.log('res', err);
-            res.destroy(err);
-          });
+        request(options, (err, response, body) => {
+          if (err) {
+            console.error(err);
+            return req.destroy(err);
+          }
+          for (let header in response.headers) {
+            if (header.toLowerCase() !== 'content-length') {
+              res.setHeader(header, response.headers[header]);
+            }
+          }
+          res.end(JSON.stringify(body));
+        });
       });
     } else {
       res.end('hello agent!');
