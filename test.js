@@ -14,7 +14,8 @@ let options = {
     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
     'Accept-Encoding': 'gzip, deflate, br',
     'Accept-Language': 'zh-CN,zh;q=0.8'
-  }
+  },
+  encoding: null
   // proxy: `http://127.0.0.1:2351`,
 };
 
@@ -41,13 +42,18 @@ let options = {
 //   method: 'post'
 // };
 
+// request(options,(err,res,body)=>{
+//   console.log(body)
+// })
+
 function wrapr(options, cb) {
   request(
     {
       url: `http://127.0.0.1:2345`,
       method: 'POST',
-      json: options
+      json: options,
       // headers:options.headers
+      encoding: null
     },
     cb
   );
@@ -57,4 +63,6 @@ wrapr(options, function(err, res, body) {
   console.log(err);
   console.log(res);
   console.log(body);
+
+  // console.log(JSON.stringify(body))
 });

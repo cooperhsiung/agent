@@ -29,7 +29,11 @@ http
               res.setHeader(header, response.headers[header]);
             }
           }
-          res.end(JSON.stringify(body));
+          if (Buffer.isBuffer(body)) {
+            res.end(body);
+          } else {
+            res.end(JSON.stringify(body));
+          }
         });
       });
     } else {
