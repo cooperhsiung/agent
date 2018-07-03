@@ -34,6 +34,7 @@ http
               res.setHeader(header, response.headers[header]);
             }
           }
+          res.setHeader('__href', response.request.uri.href);
           if (options.__jar) {
             res.setHeader('__jar', JSON.stringify(options.jar._jar));
           }

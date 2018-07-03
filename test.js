@@ -39,7 +39,7 @@ options = {
   },
   encoding: null,
   jar: request.jar(),
-  proxy: `http://127.0.0.1:2351`,
+  // proxy: `http://127.0.0.1:2351`
   // __jar:'asd'
 };
 //
@@ -50,7 +50,9 @@ options = {
 
 // request(options,(err,res,body)=>{
 //   // console.log(body)
-//   console.log(options.jar)
+//   // console.log(options.jar)
+//
+//   console.log(res)
 // });
 
 function wrapr(options, cb) {
@@ -68,7 +70,7 @@ function wrapr(options, cb) {
     (err, res, body) => {
       console.log(res);
       if (err) {
-          return cb(err)
+        return cb(err);
       } else {
         if (options.jar) {
           options.jar._jar = CookieJar.fromJSON(res.headers.__jar);
@@ -82,7 +84,7 @@ function wrapr(options, cb) {
 
 wrapr(options, function(err, res, body) {
   console.log(err);
-  // console.log(res);
+  console.log(res);
   // console.log(body);
 
   // console.log(JSON.stringify(body))
