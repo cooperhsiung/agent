@@ -20,6 +20,7 @@
   },
   "homepage": "https://gitlab.com/cooperhsiung/agent#README",
   "dependencies": {
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "tough-cookie": "^2.4.3"
   }
 }
