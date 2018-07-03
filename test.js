@@ -53,7 +53,7 @@ function wrapr(options, cb) {
       method: 'POST',
       json: options,
       // headers:options.headers
-      encoding: null
+      encoding: options.encoding === null ? null : 'utf-8'
     },
     cb
   );
