@@ -48,10 +48,10 @@ options = {
 //   method: 'post'
 // };
 
-request(options,(err,res,body)=>{
-  // console.log(body)
-  console.log(options.jar)
-});
+// request(options,(err,res,body)=>{
+//   // console.log(body)
+//   console.log(options.jar)
+// });
 
 function wrapr(options, cb) {
   if (options.jar) {
