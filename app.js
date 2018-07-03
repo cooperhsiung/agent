@@ -24,7 +24,6 @@ http
           options.jar = request.jar();
           options.jar._jar = CookieJar.fromJSON(options.__jar);
         }
-        console.log(options);
         request(options, (err, response, body) => {
           if (err) {
             console.error(err);

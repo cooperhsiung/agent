@@ -39,6 +39,7 @@ options = {
   },
   encoding: null,
   jar: request.jar(),
+  proxy: `http://127.0.0.1:2351`,
   // __jar:'asd'
 };
 //
@@ -66,11 +67,15 @@ function wrapr(options, cb) {
     },
     (err, res, body) => {
       console.log(res);
-      if (options.jar) {
-        options.jar._jar = CookieJar.fromJSON(res.headers.__jar);
-        console.log('========= options.jar', options.jar);
+      if (err) {
+          return cb(err)
+      } else {
+        if (options.jar) {
+          options.jar._jar = CookieJar.fromJSON(res.headers.__jar);
+          console.log('========= options.jar', options.jar);
+        }
+        cb(null, res, body);
       }
-      cb(err, res, body);
     }
   );
 }
