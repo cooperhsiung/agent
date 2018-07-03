@@ -2,25 +2,24 @@
  * Created by Cooper on 2018/06/28.
  */
 const http = require('http');
-const r = require('request').defaults({ gzip: true, json: true, timeout: 20000 });
+const request = require('request').defaults({ gzip: true, json: true, timeout: 20000 });
 
 http
   .createServer((req, res) => {
-    let body = [];
+    let options = [];
     if (req.method === 'POST') {
       req.on('data', chunk => {
-        body.push(chunk);
+        options.push(chunk);
       });
       req.on('end', () => {
-        body = Buffer.concat(body).toString();
+        options = Buffer.concat(options).toString();
         try {
-          body = JSON.parse(body);
+          options = JSON.parse(options);
         } catch (err) {
           console.log('req', err);
           return req.destroy(err);
         }
-        req
-          .pipe(r(body))
+        request(options)
           .on('error', err => {
             console.log('req', err);
             req.destroy(err);

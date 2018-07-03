@@ -3,29 +3,29 @@
  */
 const request = require('request');
 
-// let options = {
-//   url: 'https://www.baidu.com/',
-//   headers: {
-//     Host: 'www.baidu.com',
-//     Connection: 'keep-alive',
-//     'Upgrade-Insecure-Requests': '1',
-//     'User-Agent':
-//       'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
-//     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-//     'Accept-Encoding': 'gzip, deflate, br',
-//     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
-//   },
-//   proxy: 'http://127.0.0.1:2353',
-// };
-
 let options = {
-  url: 'http://127.0.0.1:2351'
+  url: 'https://www.baidu.com/',
+  headers: {
+    Host: 'www.baidu.com',
+    Connection: 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent':
+      'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
+  },
+  // proxy: 'http://127.0.0.1:2353',
 };
+
+// let options = {
+//   url: 'http://127.0.0.1:2351'
+// };
 
 function wrapr(options, cb) {
   request(
     {
-      url: `http://127.0.0.1:2350`,
+      url: `http://127.0.0.1:2345`,
       method: 'POST',
       json: options
     },
